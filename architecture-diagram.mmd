@@ -1,0 +1,18 @@
+graph TD
+    A[User] -->|Interacts with| B[Frontend - React App]
+    B -->|API Calls| C[Backend - Node.js Server]
+    C -->|Stores/Retrieves Data| D[(Database)]
+    C -->|Generates Messages| E[OpenAI API]
+    C -->|Sends Messages| F[Twilio API]
+    G[Authentication Service] -->|Authenticates| C
+    H[Voice Input] -->|Transcribes| B
+    
+    subgraph "Cloud Platform (e.g., AWS)"
+        C
+        D
+        G
+    end
+    
+    subgraph "Static Hosting (e.g., Netlify)"
+        B
+    end
